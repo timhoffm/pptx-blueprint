@@ -2,14 +2,14 @@ import pathlib
 import pptx
 from typing import Union
 
-__Pathlike = Union[str, pathlib.Path]
+_Pathlike = Union[str, pathlib.Path]
 
 
 class Template:
     """Helper class for modifying pptx templates.
     """
 
-    def __init__(self, filename: __Pathlike):
+    def __init__(self, filename: _Pathlike):
         """Initializes a Template-Modifier.
 
         Args:
@@ -29,7 +29,7 @@ class Template:
         """
         pass
 
-    def replace_picture(self, label: str, filename: __Pathlike):
+    def replace_picture(self, label: str, filename: _Pathlike):
         """Replaces rectangle placeholders on one or many slides.
 
         Args:
@@ -47,7 +47,7 @@ class Template:
         """
         pass
 
-    def save(self, filename: __Pathlike):
+    def save(self, filename: _Pathlike):
         """Saves the updated pptx to the specified filepath.
 
         Args:
