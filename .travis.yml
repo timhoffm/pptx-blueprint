@@ -3,10 +3,9 @@ cache: pip
 python:
   - 3.6
   - 3.7
-  - 3.8
 dist: xenial
 
 install:
-  - python3 -m pip install -U pip -r dev-requirements.txt
+  - python3 -m pip install -U pip -r dev_requirements.txt
 script:
   - python3 -m pytest tests/
