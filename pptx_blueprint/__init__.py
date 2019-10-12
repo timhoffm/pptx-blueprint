@@ -48,7 +48,7 @@ class Template:
         """
         pass
 
-    def _find_shapes(self, label: str)  -> Iterable(BaseShape):
+    def _find_shapes(self, label: str) -> Iterable[BaseShape]:
         """ Finds all shapes that match the label
 
         Args:
