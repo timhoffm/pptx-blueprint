@@ -6,6 +6,11 @@ from pptx.shapes.base import BaseShape
 _Pathlike = Union[str, pathlib.Path]
 
 
+class TemplateOverwriteError(Exception):
+    """An error that occurs when the user tries to overwrite the template."""
+    pass
+
+
 class Template:
     """Helper class for modifying pptx templates.
     """
@@ -87,6 +92,13 @@ class Template:
 
         Args:
             filename (path-like): file name or path
+
+        Raises:
+            TemplateOverwriteError
         """
-        # TODO: make sure that the user does not override the self._template_path
-        pass
+        if pathlib.Path(filename).absolute() == pathlib.Path(self._template_path).absolute():
+            raise TemplateOverwriteError(
+                f'The specified save path ({filename}) is equal to the path of the template file.'
+                ' The template cannot be overwritten.'
+            )
+        self._presentation.save(filename)
